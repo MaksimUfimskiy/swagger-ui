@@ -112,6 +112,12 @@ gulp.task('copy', ['less'], function() {
     .src(['./src/main/html/**/*'])
     .pipe(gulp.dest('./dist'))
     .on('error', gutil.log)
+
+  // copy config file from root folder
+  gulp
+    .src(['./config.js'])
+    .pipe(gulp.dest('./dist'))
+    .on('error', gutil.log)
 });
 
 /**
