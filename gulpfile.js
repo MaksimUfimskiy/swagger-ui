@@ -118,6 +118,11 @@ gulp.task('copy', ['less'], function() {
     .src(['./config.js'])
     .pipe(gulp.dest('./dist'))
     .on('error', gutil.log)
+  // copy config file from root folder
+  gulp
+    .src(['./src/main/views/*'])
+    .pipe(gulp.dest('./dist/views/'))
+    .on('error', gutil.log)
 });
 
 /**
