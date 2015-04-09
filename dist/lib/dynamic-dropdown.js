@@ -18,8 +18,12 @@ function generateDropDown(data) {
             externalUrl = externalUrl[1].replace(/%2F/g, "/");
             $( '#input_baseUrl' ).append( '<option value="' + externalUrl + '"> External resourse: ' + externalUrl + '</option>' );
         }
+        var id = 1;
         for ( var i = 0; i < data.rows.length; i++ ) {
-            $( '#input_baseUrl' ).append( '<option value="' + data.rows[i].swagger + '">' + data.rows[i].name +': ' + data.rows[i].swagger + '</option>' );
+            if(data.rows[i].swagger){
+                $( '#input_baseUrl' ).append( '<option name="' + id + '" value="' + data.rows[i].swagger + '">' + data.rows[i].name +': ' + data.rows[i].swagger + '</option>' );
+                data.rows[i].id = id++;
+            }
         }
         return data.rows[0].swagger;
     } else{
