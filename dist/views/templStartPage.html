@@ -6,35 +6,38 @@
             <p> {{name}} </p>
         </div>
         <div class="app-content">
-            <div class="mini-image">
+            <div class="mini-image {{#unless description}}img-height{{/unless}}">
                 {{#if link}}
                 <a target="_blank" href="{{link}}">
-                    <img src="{{#if img}}{{img}}{{else}}images/no_image.png{{/if}}">
+                    <img class="{{#if description}}with-descr-img{{else}}no-descr-img{{/if}}" src="{{#if img}}{{img}}{{else}}images/no_image.png{{/if}}">
                 </a>
                 {{else}}
-                    <img src="{{#if img}}{{img}}{{else}}images/no_image.png{{/if}}">
+                <img class="{{#if description}}with-descr-img{{else}}no-descr-img{{/if}}" src="{{#if img}}{{img}}{{else}}images/no_image.png{{/if}}">
                 {{/if}}
             </div>
+            {{#if description}}
             <div class="description">
                 <p class="descr-text" align="center">
-                {{#if description}}
                     {{description}}
-                {{else}}
-                    No description available
-                {{/if}}
                 </p>
             </div>
+            {{/if}}
         </div>
         <div class="app-link">
             {{#if link}}
-                <a class="link-button right-border" target="_blank" href="{{link}}">APP</a>
+            <a class="link-button right-border" target="_blank" href="{{link}}">APP</a>
             {{else}}
-                <span class="noapi-button right-border">No APP link</span>
+            <span class="noapi-button right-border">No APP link</span>
             {{/if}}
             {{#if swagger}}
-                <a class="link-button link-api" name="{{id}}" href="#">API</a>
+            <a class="link-button link-api right-border" name="{{id}}" href="#">API</a>
             {{else}}
-                <span class="noapi-button">No API</span>
+            <span class="noapi-button right-border">No API</span>
+            {{/if}}
+            {{#if hublink}}
+            <a class="link-button link-api" target="_blank" href="{{hublink}}">API</a>
+            {{else}}
+            <span class="noapi-button">No HUB</span>
             {{/if}}
         </div>
     </div>
