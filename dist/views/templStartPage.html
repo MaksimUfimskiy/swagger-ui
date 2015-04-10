@@ -29,15 +29,15 @@
             {{else}}
             <span class="noapi-button right-border">No APP link</span>
             {{/if}}
+            {{#if hublink}}
+            <a class="link-button link-api" target="_blank" href="{{hublink}}">HUB</a>
+            {{else}}
+            <span class="noapi-button">No HUB</span>
+            {{/if}}
             {{#if swagger}}
             <a class="link-button link-api right-border" name="{{id}}" href="#">API</a>
             {{else}}
             <span class="noapi-button right-border">No API</span>
-            {{/if}}
-            {{#if hublink}}
-            <a class="link-button link-api" target="_blank" href="{{hublink}}">API</a>
-            {{else}}
-            <span class="noapi-button">No HUB</span>
             {{/if}}
         </div>
     </div>
